@@ -72,6 +72,7 @@ def run_menu(inventar):
         print_menu()
         optiune = input("dati optiunea: ")
         if optiune == "1":
+            redo = []
             undo_list.append(inventar)
             fakeinventar=[]
             fakeinventar = deepcopy(inventar)
@@ -79,6 +80,7 @@ def run_menu(inventar):
             if inventar == fakeinventar:
                 inventar = undo_list.pop()
         elif optiune == "2":
+            redo = []
             undo_list.append(inventar)
             fakeinventar=[]
             fakeinventar = deepcopy(inventar)
@@ -87,6 +89,7 @@ def run_menu(inventar):
                 inventar = undo_list.pop()
                 print("nu ati putut sterge obiectul deoarece obiectulcu id-ul dat nu exista (operatia nu va fii luata in calcul)")
         elif optiune == "3":
+            redo = []
             undo_list.append(inventar)
             fakeinventar = []
             fakeinventar = deepcopy(inventar)
@@ -97,6 +100,7 @@ def run_menu(inventar):
         elif optiune == "4":
             ui_descriere(inventar)
         elif optiune == "5":
+            redo = []
             undo_list.append(inventar)
             fakeinventar = []
             fakeinventar = deepcopy(inventar)
@@ -120,8 +124,11 @@ def run_menu(inventar):
             else:
                 print("Nu se poate face undo")
         elif optiune == "10":
-            undo_list.append(inventar)
-            inventar = redo.pop()
+            if len(redo) > 0:
+                undo_list.append(inventar)
+                inventar = redo.pop()
+            else:
+                print("Nu se poate face redo")
 
         elif optiune == "a":
             show_all(inventar)
