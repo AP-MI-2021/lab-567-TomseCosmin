@@ -12,7 +12,7 @@ def print_menu():
     print("6. pretul maxim din fiecare locatie")
     print("7. ordonare obiecte dupa pret crescator")
     print("8. afisare sumapreturilor din fiecare locatie")
-    print("9. undo la ultima actiune de modificare a inventarului")
+    print("9. undo ")
     print("10. redo")
     print("a. afisare toate obiecte")
     print("x. iesire")
